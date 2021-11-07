@@ -1,7 +1,7 @@
 import requests
 import json
-from .instapi.client import client
-from .instapi import bind
+from instapi.client import client
+from instapi import bind
 import sys
 import argparse
 import wget
@@ -102,5 +102,13 @@ def extractIG(username, password, target_username):
     # print(data.user.videos.video1.video_display)
     return data
 
-# data = extractIG('ali_gfx24', 'Siktir49614961', target_username)
-# print(data)
+"""
+to run this file directly uncomment the lines bellow:
+"""
+
+# if __name__ == '__main__':
+#     data = extractIG('username', 'password', 'target') # uncomment this - 
+
+#     with open('output.json', 'w') as f:
+#         f.write(data)
+
