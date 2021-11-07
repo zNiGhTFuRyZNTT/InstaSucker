@@ -9,7 +9,7 @@ import urllib.request
 import os
 import base64
 import requests
-
+import random
 
 def get_as_base64(url):
 
@@ -106,9 +106,55 @@ def extractIG(username, password, target_username):
 to run this file directly uncomment the lines bellow:
 """
 
-# if __name__ == '__main__':
-#     data = extractIG('username', 'password', 'target') # uncomment this - 
+if __name__ == '__main__':
+    class cc:
+        HEADER = '\033[95m'
+        OKBLUE = '\033[94m'
+        OKCYAN = '\033[96m'
+        OKGREEN = '\033[92m'
+        WARNING = '\033[93m'
+        FAIL = '\033[91m'
+        ENDC = '\033[0m'
+        BOLD = '\033[1m'
+        UNDERLINE = '\033[4m'
+    # <- -----  End ----- ->
 
-#     with open('output.json', 'w') as f:
-#         f.write(data)
+    # <- -----  Args ----- ->
+    my_parser = argparse.ArgumentParser(description='List the content of a folder')
+    my_parser = argparse.ArgumentParser()
+    my_parser.add_argument('-u', '--username', action='store', type=str, help="user's username")
+    my_parser.add_argument('-p', '--password',action='store', type=str, help="'user's username")
+    my_parser.add_argument('-t', '--target',action='store', type=str, help="Target's username")
+    my_parser.add_argument('-o', '--output',action='store', type=str, help="file output path (MUST BE FOLDER)")
+    args = my_parser.parse_args()
+    # <- -----  End ----- ->
+
+    # <- -----  Get Login Details if no Argument were given ----- ->
+    if args.output is None:
+        output_path = ''
+    else:
+        output_path = args.output
+
+    if args.username is None or args.password is None or args.target is None:
+        print(cc.HEADER + "[!]Invalid arguments detected" + cc.ENDC)
+        print(cc.HEADER + "Enter Login details:\n" + cc.ENDC)
+        username = input("username >> ")
+        password = input("password >> ")
+        target_username = input("target username >> ")
+    else:
+        username = args.username #sys.argv[1]
+        password = args.password #sys.argv[2]
+        target_username = args.target
+    # <- -----  End ----- ->
+
+    # <- -----  Login ----- ->
+    print(cc.OKGREEN + '[>] Logging in...' + cc.ENDC)
+    bind(username, password)
+    # <- -----  End ----- ->
+    
+    data = extractIG(username, password, target_username) 
+    rNum = random.randint(0, 100000)
+
+    with open(f'output{rNum}.json', 'w') as f:
+        f.write(data)
 
