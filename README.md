@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./NEMESIS_TEAM_LOGO.jpg" alt="NEMESIS TEAM LOGO"/>
+  <img src="./NEMESIS_TEAM_LOGO.jpg" alt="NEMESIS TEAM LOGO" style="border-radius:5px"/>
 </p>
 
 # InstaSucker
@@ -11,7 +11,10 @@
  * the instapi directory is needed and the instagram-private-api module must be installed before use.
 ---
 ## How to run
-
+ * First of all run:
+    ```
+    pip install -r requirements.txt
+    ```
 
  1- to run directly :
  * run the main.py file with or without arguments, if you do not provide the required information with arguments it will ask you to enter them manually in the terminal.
