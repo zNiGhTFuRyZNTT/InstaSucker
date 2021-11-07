@@ -103,7 +103,7 @@ def extractIG(username, password, target_username):
     return data
 
 """
-to run this file directly uncomment the lines bellow:
+If user ran the file directly:
 """
 
 if __name__ == '__main__':
@@ -151,7 +151,7 @@ if __name__ == '__main__':
     print(cc.OKGREEN + '[>] Logging in...' + cc.ENDC)
     bind(username, password)
     # <- -----  End ----- ->
-    
+
     data = extractIG(username, password, target_username) 
     rNum = random.randint(0, 100000)
 
